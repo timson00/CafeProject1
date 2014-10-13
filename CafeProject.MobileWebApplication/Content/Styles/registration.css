@@ -1,0 +1,53 @@
+﻿table{
+    cellspacing: 0;
+    cellpadding: 3px;
+    width: 100%;
+    vertical-align: top;    
+}
+
+td#leftcol{
+    width: 50%;
+    text-align: right;
+    padding: 5px;   
+}
+
+td#rightcol{
+    width: 50%;
+    text-align: left;
+}
+
+input{
+    border-radius: 5px;
+    border-style: ridge;
+    margin: 3px;
+    padding: 3px;
+    font-family: 'Comic Sans MS', sans-serif;
+    font-size: normal;
+}
+
+select{
+    border-radius: 5px;
+    border-style: ridge;
+    margin: 3px; 
+    padding: 3px;
+    font-family: 'Comic Sans MS', sans-serif;
+    font-size: normal;
+}
+
+div#wrapper  div#main{
+    margin: 17px auto;
+    text-align: center;
+    padding: 0;
+    background-color: #fff; 
+    
+    border-radius: 3px;
+    border: 1px solid #ddd;   
+    border-style: double;
+}
+
+div#wrapper > div#main > div#buttons{
+    margin: 0 auto;
+    text-align: center;
+    padding: 5px;
+    background-color: #fafafa;
+}

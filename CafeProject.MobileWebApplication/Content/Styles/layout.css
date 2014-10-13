@@ -1,0 +1,356 @@
+html {
+    margin: 0;
+}
+
+body {
+    margin: 0;
+    
+    background-image: url('/Content/Images/main-background.png');
+    background-repeat: repeat;
+    
+    font-family: 'Comic Sans MS', sans-serif;
+    font-size: medium;
+}
+
+div#wrapper {
+}
+
+div#wrapper > div#header {
+    height: 70px;
+    padding: 7px 5px;
+    background-color: #fff;
+    
+    border-bottom: 1px solid #d7d7d7;
+}
+
+div#wrapper > div#content {
+    margin: 17px 0;
+}
+
+div#wrapper > div#foother {
+    padding: 7px 0;
+    
+    background-color: #fff;
+    
+    border: 1px solid #e1e1e1;
+    border-left: none;
+    border-right: none;
+    
+    text-align: center;
+    font-family: 'Lobster', cursive;
+}
+
+div#wrapper  div#main{
+    margin: 17px auto;
+    text-align: center;
+    padding: 0;
+    background-color: #fff; 
+    
+    border-radius: 3px;
+    border: 1px solid #ddd;   
+    border-style: double;
+}
+
+/* Header */
+
+div#header > div.top-line {
+    text-align: right;
+}
+
+div#header > div.top-line > a#signin {
+    width: 70px;
+    display: inline-block;
+}
+
+/* Content */
+
+div#content > div.box {
+    margin: 0 5px;
+    
+    background-color: #fff;
+    border: 5px solid #e1e1e1;
+    
+    border-top-width: 10px;
+    border-bottom-width: 9px;
+    border-radius: 5px;
+    
+    color: #000;
+}
+
+/* List */
+
+ul.list {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    
+    list-style: none;
+    background-color: #fff;
+    border-radius: 3px;
+    
+    overflow: hidden;
+}
+
+ul.list > li {
+    border-bottom: 1px solid #ddd;
+}
+
+/* ------------------------------------------------ */
+
+ul#list.list {
+}
+
+ul#list.list > li {
+    padding: 7px 3px;
+}
+
+ul#list.list > form > li {
+    padding: 2px 3px;
+    border-bottom: 1px solid gray;
+    border-top : 1px solid gray;
+}
+
+ul#list.list > li > div.logo {
+    width: 60px;
+    height: 60px;
+    
+    float: left;
+    border-radius: 10px;
+}
+
+ul#list.list > li > div.description {
+    min-height: 60px;
+    height: 60px;
+    max-height: 70px;
+    margin-left: 70px;
+}
+
+ul#list.list > li > div.logo > img {
+    width: 100%;
+    height: 100%;
+    border-radius: 14px;
+}
+
+ul#list.list > li > div.description > div.type {
+    height: 20px;
+    line-height: 20px;
+    font-size: 12px;
+}
+
+ul#list.list > li > div.description > div.caption {
+    max-height: 40px;
+    margin-left: 5px;
+    line-height: 20px;
+    font-family: 'Lobster', cursive;
+    font-size: 20px;
+}
+
+/* ------------------------------------------------ */
+
+/* Menu */
+
+ul#menu {
+    text-align: center;
+    font-family: 'Lobster', cursive;
+}
+
+ul#menu.list > li > a.menuitem {
+    display: block;
+    padding: 5px 7px;
+    
+    overflow: hidden;
+    word-wrap: normal;
+    color: #111;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Styles */
+
+div.shadow {
+    -webkit-box-shadow: 0px 0px 12px #555;
+    -moz-box-shadow: 0px 0px 12px #555;
+    box-shadow: 0px 0px 12px #555;
+}
+
+/* Buttons */
+
+a.button {
+    padding: 1px 0;
+    display: block;
+    line-height: 23px;
+    
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -khtml-border-radius: 5px;
+    border-radius: 5px;
+    
+    -moz-box-shadow: 0 0 3px #fff;
+    -webkit-box-shadow: 0 0 3px #fff;
+    box-shadow: inset 0 0 3px #fff;
+    
+    -moz-text-shadow: 0 0 7px #fff;
+    -webkit-text-shadow: 0 0 7px #fff;
+    text-shadow: 0 0 7px #fff;
+    
+    text-decoration: none;
+    font-family: 'Lobster', cursive;
+    color: #222;
+    text-align: center;
+}
+
+a.button.blue {
+    background-color:#78ddff;
+    background-image: -moz-linear-gradient(top, #78ddff 0%, #00568f 100%);
+    background-image: -webkit-linear-gradient(top, #78ddff 0%, #00568f 100%);
+    background-image: -o-linear-gradient(top, #78ddff 0%, #00568f 100%);
+    background-image: -ms-linear-gradient(top, #78ddff 0% ,#00568f 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00568f', endColorstr='#00568f',GradientType=0 );
+    background-image: linear-gradient(top, #78ddff 0% ,#00568f 100%);
+}
+
+a.button.green {
+    background-color:#8cd498;
+    background-image: -moz-linear-gradient(top, #8cd498 0%, #405e32 100%);
+    background-image: -webkit-linear-gradient(top, #8cd498 0%, #405e32 100%);
+    background-image: -o-linear-gradient(top, #8cd498 0%, #405e32 100%);
+    background-image: -ms-linear-gradient(top, #8cd498 0% ,#405e32 100%); 
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#405e32', endColorstr='#405e32',GradientType=0 ); 
+    background-image: linear-gradient(top, #8cd498 0% ,#405e32 100%);
+}
+
+a.button.yellow {
+    background-color:#f3fc8d;
+    background-image: -moz-linear-gradient(top, #f3fc8d 0%, #b5b500 100%);
+    background-image: -webkit-linear-gradient(top, #f3fc8d 0%, #b5b500 100%);
+    background-image: -o-linear-gradient(top, #f3fc8d 0%, #b5b500 100%);
+    background-image: -ms-linear-gradient(top, #f3fc8d 0% ,#b5b500 100%); 
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b5b500', endColorstr='#b5b500',GradientType=0 );
+    background-image: linear-gradient(top, #f3fc8d 0% ,#b5b500 100%);
+}
+
+a.button.red {
+    background-color:#ff94a9;
+    background-image: -moz-linear-gradient(top, #ff94a9 0%, #a31b27 100%);
+    background-image: -webkit-linear-gradient(top, #ff94a9 0%, #a31b27 100%);
+    background-image: -o-linear-gradient(top, #ff94a9 0%, #a31b27 100%);
+    background-image: -ms-linear-gradient(top, #ff94a9 0% ,#a31b27 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#a31b27', endColorstr='#a31b27',GradientType=0 );
+    background-image: linear-gradient(top, #ff94a9 0% ,#a31b27 100%);
+}
+
+div#buttons{
+    margin: 0 auto;
+    text-align: center;
+    padding: 5px;
+    background-color: #fafafa;
+}
+
+/* Fonts */
+
+.spec-font {
+    font-family: 'Lobster', cursive;
+    /* font-family: 'Nautilus Pompilius'; */
+}
+
+.bold {
+    font-weight: bold;
+}
+
+div.clear {
+    clear: both;
+}
+
+/* Messages */
+
+div#content > div.messages > div.message {
+    margin-bottom: 17px;
+    padding: 5px 7px;
+    display: none;
+    
+    background-color: #fff;
+    border: 1px solid #e1e1e1;
+    border-left: none;
+    border-right: none;
+    font-size: 12px;
+}
+
+div#content > div.messages > div.message.error {
+    color: #7e0000;
+}
+
+div#content > div.messages > div#location.message {
+    line-height: 32px;
+}
+
+/* Special */
+
+img.loading {
+    width: 32px;
+    height: 32px;
+    
+    vertical-align: middle;
+}
+
+/* Select */
+
+select{
+    border-radius: 5px;
+    border-style: ridge;
+    margin: 3px; 
+    padding: 3px;
+    font-family: 'Comic Sans MS', sans-serif;
+    font-size: medium;
+}
+
+input{
+    border-radius: 5px;
+    border-style: ridge;
+    margin: 3px;
+    padding: 3px;
+    font-family: 'Comic Sans MS', sans-serif;
+    font-size: medium;
+    overflow: hidden;
+}
+
+/* Table */
+
+table{
+    width: 100%;
+    vertical-align: top;    
+}
+
+td#leftcol{
+    width: 50%;
+    text-align: right;
+    padding: 5px;   
+}
+
+td#rightcol{
+    width: 50%;
+    text-align: left;
+}
+
+tr#center {
+    width: 100%;
+    text-align: center;
+}
+
+div.price {
+    vertical-align: central;
+    padding : 2px;
+    float: right;
+}
+
+a.menulist {
+    padding-right: 4px;
+    font-size: 12px;
+    border-right: 1px solid gray;
+}
+
+div.er_message {
+    text-align: center;
+    border : 1px solid black;
+    background: #fff;
+    padding: 2px;
+}
