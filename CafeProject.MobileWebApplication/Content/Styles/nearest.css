@@ -1,0 +1,42 @@
+div#content > div#object-list {
+    display: none;
+}
+
+ul#list.list > li > div.buttons > div.left {
+    width: 50%;
+    float: left;
+}
+
+ul#list.list > li > div.buttons > div.right {
+    width: 50%;
+    float: right;
+}
+
+ul#list.list > li > div.buttons > div > a {
+    margin-top: 3px;
+    display: block;
+}
+
+ul#list.list > li > div.buttons > div.left > a {
+    
+    margin-right: 2px;
+}
+
+ul#list.list > li > div.buttons > div.right > a {
+    margin-left: 2px;
+}
+
+ul#list.list > li#show-more {
+    text-align: center;
+}
+
+ul#list.list > li#show-more > a {
+    display: block;
+    padding: 5px 7px;
+    
+    overflow: hidden;
+    word-wrap: normal;
+    color: #777;
+    text-decoration: none;
+    cursor: pointer;
+}

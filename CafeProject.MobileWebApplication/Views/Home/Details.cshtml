@@ -1,0 +1,58 @@
+﻿@using CafeProject.MobileWebApplication.Models
+@model DetailsModel
+@{
+    ViewBag.Title = "Details";
+}
+
+@section Metadata {
+}
+
+@section Styles {
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Styles/details.css")" />
+}
+
+@section Scripts {
+}
+            <div class="message shadow">
+            </div>
+            <div class="box shadow">
+                <ul id="list" class="list">
+                    <li>
+                        <div class="logo">
+                            <img src="@Url.Content("~/Content/Images/Avatars/" + Model.ObjectIcon)" />
+                        </div>
+                        <div class="description">
+                            <div class="type">@Model.ObjectType</div>
+                            <div class="caption">@Model.ObjectCaption</div>
+                        </div>
+                        <div class="clear"></div>
+                        <div class="options">
+                            @foreach (var address in Model.ObjectAddresses)
+                            {
+                                <div class="option">
+                                    <img src="@Url.Content("~/Content/Images/Options/home.png")" />
+                                    <span>@address</span>
+                                </div>
+                            }
+                            <div class="option">
+                                <img src="@Url.Content("~/Content/Images/Options/phone.png")" />
+                                <span>+7 @Model.ObjectPhoneNumber</span>
+                            </div>
+                            <hr />
+                            @foreach (var option in Model.ObjectOptions)
+                            {
+                                <div class="option">
+                                    <img src="@Url.Content("~/Content/Images/Options/" + option.Icon)" />
+                                    <span>@option.Title</span>
+                                </div>
+                            }
+                        </div>
+                    </li>
+                    <li>
+                        <a class="button green">Отзывы</a>
+                    </li>
+                    <li>
+                        <a class="button blue">Статистика</a>
+                    </li>
+                </ul>
+            </div>

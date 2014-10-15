@@ -1,0 +1,19 @@
+ul#list.list > li > div.options {
+    margin-top: 20px;
+    margin-left: 15px;
+}
+
+ul#list.list > li > div.options > div.option {
+    line-height: 32px;
+}
+
+ul#list.list > li > div.options > div.option > img {
+    width: 32px;
+    height: 32px;
+    vertical-align: middle;
+}
+
+ul#list.list > li > div.options > div.option > span {
+    border-bottom: 1px dashed #ccc;
+    font-size: 15px;
+}

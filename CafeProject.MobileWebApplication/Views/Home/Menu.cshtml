@@ -1,0 +1,89 @@
+﻿@using CafeProject.MobileWebApplication.Models
+@using System.ComponentModel.DataAnnotations 
+@model MenuModel
+@{
+    ViewBag.Title = "Menu";
+}
+
+@section Styles{
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Styles/layout.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Styles/details.css")" />
+}
+
+<div class="box shadow">
+    <ul id="list" class="list">
+        <li>
+            <div class="logo">
+                <img src="@Url.Content("~/Content/Images/Avatars/" + Model.ObjectIcon)" />
+            </div>
+            <div class="description">
+                <div class="type">@Model.ObjectType</div>
+                <div class="caption">@Model.ObjectCaption</div>
+            </div>
+            <div class="clear"></div>
+            <div class="options">
+                @foreach (var address in Model.ObjectAddress)
+                {
+                    <div class="option">
+                        <img src="@Url.Content("~/Content/Images/Options/home.png")" />
+                        <span>@address</span>
+                    </div>
+                }
+                <div class="option">
+                    <img src="@Url.Content("~/Content/Images/Options/phone.png")" />
+                    <span>+7 @Model.ObjectPhoneNumber</span>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<p></p>
+
+<div class="box shadow">
+    <form method="post" name="ChangeForm">
+        <input type="hidden" name="command" value="" />
+        <input type="hidden" name="objID" value="" />
+        <input type="hidden" name="ftID" value="" />
+        <ul id="list" class="list">
+            <li>
+                <h3 style="text-align: center; padding: 0; margin: 0;">Menu</h3>
+            </li>
+            <li>
+                @foreach (var ftype in Model.ObjectFoodTypes)
+                {
+
+                    <input type="button" name="Update" value="@ftype.Type " onclick="__doPostBack('Update','@Model.ObjectID','@ftype.ID')" />
+                }
+
+            </li>
+            @foreach (var food in Model.ObjectFoods)
+            {
+                <li>
+                    <div class="logo">
+                        <img src="@Url.Content("~/Content/Images/Foods/" + food.Photo)" />
+                    </div>
+                    <div class="description">
+                        <div class="caption">@food.Name</div>
+                        <div class="price">@food.Price.@food.PriceCoins</div>
+                        <div class="type"><span>Состав : </span>@food.Consist</div>
+                    </div>
+                </li>
+            }
+        </ul>
+    </form>
+</div>
+<script type="text/javascript">
+    var theForm = document.forms['ChangeForm'];
+    if (!theForm) {
+        theForm = document.ChangeForm;
+    }
+    function __doPostBack(command, objID, ftID) {
+        if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+            theForm.command.value = command;
+            theForm.objID.value = objID;
+            theForm.ftID.value = ftID;
+            theForm.submit();
+        }
+    }
+</script> 

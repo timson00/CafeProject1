@@ -1,0 +1,70 @@
+﻿@{
+    ViewData["Title"] = "Nearest";
+}
+@section Metadata {
+}
+@section Styles {
+    <link rel="stylesheet" type="text/css" href="@Url.Content("/Content/Styles/nearest.css")" />
+}
+@section Scripts {
+    <script type="text/javascript">
+        var st;
+        function navigatorSuccess(loc) {
+            var latitude = loc.coords.latitude.toFixed(5);
+            var longitude = loc.coords.longitude.toFixed(5);
+            displayMessage("div.message#nearest-step-2");
+            var requestUrl = "/GetNearest?latitude=" + latitude + "&longitude=" + longitude;
+
+            $.ajax({
+                type: "GET",
+                url: requestUrl,
+                data: { name: 'Zepto.js' },
+                dataType: "html",
+                success: function (data) {
+                    var object_list = $("div#object-list");
+                    object_list.html(data);
+                    hideMessages();
+                    object_list.show();
+                },
+                error: function (xhr, type) {
+                    displayMessage("div#ajax-request-error");
+                }
+            })
+        }
+
+        function navigatorError() {
+            displayMessage("nearest-location-error");
+        }
+
+        $(document).ready(function() {
+            displayMessage("div.message#nearest-step-1");
+            navigator.geolocation.getCurrentPosition(navigatorSuccess, navigatorError);
+        });
+    </script>
+}
+            <div class="messages">
+                <div id="nearest-step-1" class="message shadow">
+                    <img class="loading" src="/Content/Images/loading.gif" />
+                    <span>Определение местоположения</span>
+                </div>
+                <div id="nearest-step-2" class="message shadow">
+                    <img class="loading" src="/Content/Images/loading.gif" />
+                    <span>Загрузка данных с сервера</span>
+                </div>
+                <div id="nearest-location-error" class="message shadow">
+                    <span>
+                        Неудалось определить местоположение
+                        <br />
+                        Проверьте настройки геолокации
+                    </span>
+                </div>
+                <div id="ajax-request-error" class="message error shadow">
+                    <span>
+                        Неудалось получить данные
+                        <br />
+                        Повторите попытку позднее
+                    </span>
+                </div>
+            </div>
+            <div id="object-list" class="box shadow">
+            </div>
