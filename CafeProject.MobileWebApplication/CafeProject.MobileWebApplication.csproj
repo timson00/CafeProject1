@@ -217,7 +217,6 @@
     <Content Include="Views\Home\Registration.cshtml" />
     <Content Include="Views\Home\Menu.cshtml" />
     <Content Include="Views\Home\ConfirmEmail.cshtml" />
-    <Content Include="Views\Home\Confirm.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <PropertyGroup>

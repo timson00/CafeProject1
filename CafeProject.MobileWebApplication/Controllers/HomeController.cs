@@ -141,16 +141,13 @@ namespace CafeProject.MobileWebApplication.Controllers
                     mess.Subject = "Подтверждение регистрации";
                     mess.Body = string.Format("Для завершения регистрации перейдите по ссылке:" +
                             "<a href=\"{0}\" title=\"Подтвердить регистрацию\">{0}</a>",
-                            Url.Action("ConfirmEmail", "HomeController",
-                            new { Token = us.ID, Email = user.Email }, Request.Url.Scheme));
+                            Request.Url.Host + ":" + Request.Url.Port + ("/ConfirmEmail/" + us.ID + "/?Email = " + us.Email));
                     mess.IsBodyHtml = true;
-
                     SmtpClient smpt = new System.Net.Mail.SmtpClient("smtp.yandex.ru", 25);
-
                     smpt.Credentials = new System.Net.NetworkCredential("timson7@yandex.ru", "2240800");
                     smpt.EnableSsl = true;
                     smpt.Send(mess);
-                    return RedirectToAction("Confirm", "HomeController", new { Email = user.Email });
+                    return RedirectToAction("Confirm", new { Email = user.Email });
                 //}
                 //ViewBag.Message = "Регистрация прошла успешно";
             }
@@ -270,10 +267,9 @@ namespace CafeProject.MobileWebApplication.Controllers
         }
 
         //Для эл.адреса
-        public ActionResult Confirm(string Email)
+        public string Confirm(string Email)
         {
-            ViewBag.Message = "На ваш почтовый адрес: " + Email + "Вам высланы дальнейщие инструкции по завершению регистрации";
-            return View();
+            return "На ваш почтовый адрес: " + Email + "Вам высланы дальнейщие инструкции по завершению регистрации";
         }
 
         //Подтверждение эл.адреса

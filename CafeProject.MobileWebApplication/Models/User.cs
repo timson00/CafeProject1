@@ -22,7 +22,7 @@ namespace CafeProject.MobileWebApplication.Models
         [Required]
         [StringLength(255, MinimumLength = 5, ErrorMessage = "Длина строки должна быть от 5 до 255 символов")]
         public string Login { get; set; }
-        public bool ConfirmEmail { get; set; }
+        public string ConfirmEmail { get; set; }
         public string Gender { get; set; }
         [Required]
         [DataType(DataType.Password)]
