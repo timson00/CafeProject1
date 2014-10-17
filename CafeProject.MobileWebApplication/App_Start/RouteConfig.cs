@@ -15,8 +15,14 @@ namespace CafeProject.MobileWebApplication
 
             routes.MapRoute(
                 name: "Default",
-                url: "{action}/{id}",
+                url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "Registration",
+                url: "Registration/ConfirmEmail/{ID}/{Email}",
+                defaults: new { controller = "Registration", action = "ConfirmEmail" }
             );
         }
     }
