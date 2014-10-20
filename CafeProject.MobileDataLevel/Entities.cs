@@ -33,7 +33,7 @@ namespace CafeProject.MobileDataLevel.Entities
         public bool ConfirmEmail { get; set; }
 
         [Column("Gender")]
-        public byte Gender { get; set; }
+        public bool Gender { get; set; }
 
         [Column("Active")]
         public bool Active { get; set; }

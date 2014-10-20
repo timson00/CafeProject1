@@ -136,7 +136,6 @@
     <Compile Include="Models\NearestModel.cs" />
     <Compile Include="Models\ObjectOption.cs" />
     <Compile Include="Models\User.cs" />
-    <Compile Include="Models\UserIdentity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -217,8 +216,8 @@
     <Content Include="Views\Home\SignIn.cshtml" />
     <Content Include="Views\Registration\Registration.cshtml" />
     <Content Include="Views\Home\Menu.cshtml" />
-    <Content Include="Views\Registration\ConfirmEmail.cshtml" />
     <Content Include="Views\Registration\Confirm.cshtml" />
+    <Content Include="Views\Registration\ConfirmEmail.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <PropertyGroup>

@@ -14,16 +14,17 @@ namespace CafeProject.MobileWebApplication
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                name: "Registration",
+                url: "Registration/ConfirmEmail/{email}/{id}",
+                defaults: new { controller = "Registration", action = "ConfirmEmail" }
+            );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
 
-            routes.MapRoute(
-                name: "Registration",
-                url: "Registration/ConfirmEmail/{ID}/{Email}",
-                defaults: new { controller = "Registration", action = "ConfirmEmail" }
-            );
         }
     }
 }

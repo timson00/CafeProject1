@@ -1,9 +1,10 @@
-﻿@using CafeProject.MobileWebApplication.Models
-@model UserIdentity
-@{
-    ViewBag.Title = "Error";
+﻿@{
+    ViewBag.Title = "ConfirmEmail";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Error</h2>
-
+<div class="shadow">
+    <div class="er_message">
+        @ViewBag.Message
+    </div>
+</div>

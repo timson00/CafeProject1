@@ -3,19 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
 using System.Data.Sql;
 using System.Data.Entity;
 using System.Security.Cryptography;
 using CafeProject.MobileDataLevel.Entities;
 using CafeProject.MobileDataLevel.Contexts;
 using CafeProject.MobileWebApplication.Models;
-
-
 using System.Net.Mail;
 using System.Threading.Tasks;
-
-
 namespace CafeProject.MobileWebApplication.Controllers
 {
     public class RegistrationController : Controller
@@ -25,34 +20,21 @@ namespace CafeProject.MobileWebApplication.Controllers
         {
             return View();
         }
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Registration(CafeProject.MobileWebApplication.Models.User user)
         {
-            if (user.Surname.Length < 2 && user.Surname.Length > 255)
-            {
-                ModelState.AddModelError("Surname", "Длина строки должна быть от 2 до 255 символов");
-            }
-            if (user.Name.Length < 2 && user.Name.Length > 255)
-            {
-                ModelState.AddModelError("Name", "Длина строки должна быть от 2 до 255 символов");
-            }
-            if (user.Login.Length < 5 && user.Login.Length > 100)
-            {
-                ModelState.AddModelError("Login", "Длина строки должна быть от 5 до 100 символов");
-            }
             if (ModelState.IsValid)
             {
-                byte b = 0;
+                bool b = false;
                 var context = DatabaseContext.Create();
                 switch (user.Gender)
                 {
                     case "Муж.":
-                        b = 0;
+                        b = false;
                         break;
                     case "Жен.":
-                        b = 1;
+                        b = true;
                         break;
                     default:
                         break;
@@ -81,8 +63,8 @@ namespace CafeProject.MobileWebApplication.Controllers
                 MailMessage mess = new MailMessage(from, to);
                 mess.Subject = "Подтверждение регистрации";
                 mess.Body = string.Format("Для завершения регистрации перейдите по ссылке:" +
-                        "<a href=\"{0}\" title=\"Подтвердить регистрацию\">{0}</a>",
-                        Request.Url.Host + ":" + Request.Url.Port + ("/ConfirmEmail/" + us.ID + "/Email = " + us.Email));
+                "<a href=\"{0}\" title=\"Подтвердить регистрацию\">{0}</a>",
+                Request.Url.Host + ":" + Request.Url.Port + ("/ConfirmEmail/" + us.ID + "/Email = " + us.Email));
                 //Подтвержение что тело сообщения содержит информацию
                 mess.IsBodyHtml = true;
                 //адрес smtp-сервера, с которого будет посылаться ссообщение
@@ -95,9 +77,9 @@ namespace CafeProject.MobileWebApplication.Controllers
                 smpt.Send(mess);
                 return RedirectToAction("Confirm", new { Email = user.Email });
             }
-            return View(user);
+            else
+                return View(user);
         }
-
         //Хэш пароля
         public byte[] Sha(string password)
         {
@@ -107,14 +89,12 @@ namespace CafeProject.MobileWebApplication.Controllers
             sha.Dispose();
             return result;
         }
-
         //Для эл.адреса
         public ActionResult Confirm(string Email)
         {
             ViewBag.Message = "На ваш почтовый адрес: " + Email + " Вам высланы дальнейщие инструкции по завершению регистрации.";
             return View();
         }
-
         //Подтверждение эл.адреса
         public ActionResult ConfirmEmail(string ID, string Email)
         {
