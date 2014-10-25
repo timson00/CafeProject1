@@ -17,5 +17,8 @@ namespace CafeProject.MobileWebApplication.Models
         [DataType(DataType.Currency)]
         public int Price { get; set; }
         public int PriceCoins { get; set; }
+        public int ObjectID { get; set; }
+        public string Object { get; set; }
+        public ICollection<string> ObjectAddress { get; set; }
     }
 }

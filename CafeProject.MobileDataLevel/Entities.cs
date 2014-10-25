@@ -347,7 +347,7 @@ namespace CafeProject.MobileDataLevel.Entities
         public int ObjectID { get; set; }
 
         [ForeignKey("FoodType")] // Не объявил виртуальное свойство FoodType
-        [Column("FoodTypeID")]
+        [Column("FoodType")]
         public int FoodTypeID { get; set; } // Поле типа int
 
         [Column("FoodIcon")]

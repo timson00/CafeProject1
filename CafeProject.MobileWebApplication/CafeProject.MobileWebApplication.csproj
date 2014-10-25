@@ -218,6 +218,7 @@
     <Content Include="Views\Home\Menu.cshtml" />
     <Content Include="Views\Registration\Confirm.cshtml" />
     <Content Include="Views\Registration\ConfirmEmail.cshtml" />
+    <Content Include="Views\Home\FoodSearch.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <PropertyGroup>

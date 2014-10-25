@@ -312,6 +312,9 @@ input{
     font-size: medium;
     overflow: hidden;
 }
+input.srch{
+    width: 90%;
+}
 
 /* Table */
 

@@ -137,9 +137,9 @@ namespace CafeProject.MobileWebApplication.Controllers
                 }).ToArray();
 
             if (Request.IsAjaxRequest())
-                return PartialView("~/Views/Home/_NearestList.cshtml", model);
+                return PartialView("/Home/_NearestList.cshtml", model);
 
-            return View("~/Views/Home/NearestList.cshtml", model);
+            return View("/Home/NearestList.cshtml", model);
         }
 
         //Функция для Меню
@@ -172,13 +172,81 @@ namespace CafeProject.MobileWebApplication.Controllers
                         Name = f.FoodName,
                         Photo = f.FoodIcon,
                         Consist = f.FoodConsist,
-                        Price = f.FoodPrice
+                        Price = f.FoodPrice,
+                        PriceCoins = f.FoodPriceCoins
                     }).ToList()
                 }).SingleOrDefault();
 
             if (obj == null)
                 return HttpNotFound();
             return obj;
+        }
+
+        [HttpGet]
+        public ActionResult FoodSearch()
+        {
+            string fname = "Cake";
+            var context = DatabaseContext.Create();
+
+            var model = context.ObjectMenuItems.Where(f => f.FoodName == fname || f.FoodType.Title == fname)
+    .Select(m => new Food()
+    {
+        Name = m.FoodName,
+        Photo = m.FoodIcon,
+        Consist = m.FoodConsist,
+        Price = m.FoodPrice,
+        PriceCoins = m.FoodPriceCoins,
+        ObjectID = m.ObjectID,
+        Object = m.Object.Caption,
+        ObjectAddress = m.Object.Addresses.Select(a => "ул. " + a.Street.Title + " дом " + a.HouseNumber).ToList()
+    });
+
+            if (model == null)
+                return Content("По вашему запросу ничего не найдено.");
+            return View("~/Views/Home/FoodSearch.cshtml", model);
+        }
+
+        [HttpPost]
+        public ActionResult FoodSearch(string fname)
+        {
+
+            if (string.IsNullOrEmpty(fname))
+                return Content("Введите название блюда!");
+
+            var context = DatabaseContext.Create();
+
+            var model = context.ObjectMenuItems.Where(f => f.FoodName == fname || f.FoodType.Title == fname)
+                .Select(m => new Food()
+                {
+                    Name = m.FoodName,
+                    Photo = m.FoodIcon,
+                    Consist = m.FoodConsist,
+                    Price = m.FoodPrice,
+                    PriceCoins = m.FoodPriceCoins,
+                    Object = m.Object.Caption,
+                    ObjectAddress = m.Object.Addresses.Select(a => "ул." + a.Street.Title + "дом" + a.HouseNumber)
+                               .ToList()
+                });
+            //var model = context.ObjectMenuItems.Where(f => f.FoodName == fname || f.FoodType.Title == fname)
+            //    .Select(f => new MenuModel()
+            //    {
+            //        ObjectCaption = f.Object.Caption,
+            //        ObjectAddress = f.Object.Addresses
+            //                    .Select(a => "ул." + a.Street.Title + "дом" + a.HouseNumber)
+            //                    .ToList(),
+            //        ObjectFoods = f.Object.MenuItems.Select(m => new Food()
+            //        {
+            //            Name = m.FoodName,
+            //            Photo = m.FoodIcon,
+            //            Consist = m.FoodConsist,
+            //            Price = m.FoodPrice,
+            //            PriceCoins = m.FoodPriceCoins
+            //        }).ToList()
+            //    }).ToArray();
+
+            if (model == null)
+                return Content("По вашему запросу ничего не найдено.");
+            return View("~/Views/Home/FoodSearch.cshtml", model);
         }
 
 

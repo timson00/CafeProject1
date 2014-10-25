@@ -1,0 +1,45 @@
+﻿@using System.Collections.Generic
+@using CafeProject.MobileWebApplication.Models
+@using System.ComponentModel.DataAnnotations
+
+@model IEnumerable<Food>
+@{
+    ViewBag.Title = "FoodSearch";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="box shadow">
+    <input type="text" class="srch" name="Search" placeholder="Найти..." /><input type="submit" value="Поиск" />
+    </div>
+
+    @foreach(var food in Model)
+    { 
+        <div class="box shadow">
+        <ul id="list" class="list">
+            <li>
+                <div class="logo">
+                    <img src="@Url.Content("~/Content/Images/Foods/" + food.Photo)" />
+                </div>
+                <div class="description">
+                    <div class="caption">@food.Name</div>
+                    <div class="price">@food.Price.@food.PriceCoins</div>
+                    <div class="type">@food.Consist</div>
+                </div>
+
+                <div class="clear"></div>
+                <div class="options">
+                    <div class="option">
+                        <span><a href="~/Home/Details/@food.ObjectID">@food.Object</a></span>
+                    </div>
+                    <div class="option">
+                        @foreach(var address in food.ObjectAddress)
+                        { 
+                             <img src="@Url.Content("~/Content/Images/Options/home.png")" />
+                             <span>@address</span>
+                        }
+                    </div>
+                </div>
+            </li>
+        </ul>
+        </div> 
+    }

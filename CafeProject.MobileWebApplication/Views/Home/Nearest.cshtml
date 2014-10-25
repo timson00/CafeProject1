@@ -13,7 +13,7 @@
             var latitude = loc.coords.latitude.toFixed(5);
             var longitude = loc.coords.longitude.toFixed(5);
             displayMessage("div.message#nearest-step-2");
-            var requestUrl = "/GetNearest?latitude=" + latitude + "&longitude=" + longitude;
+            var requestUrl = "/Home/GetNearest?latitude=" + latitude + "&longitude=" + longitude;
 
             $.ajax({
                 type: "GET",
